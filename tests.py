@@ -227,8 +227,8 @@ class LoreAndWildsTests(unittest.TestCase):
         self.assertEqual(len(game_rg.legal_moves(GREEN)), 22)
         self.assertEqual(game_rg.piece_at(7, 4).name, "Rey Leónidas")
         self.assertEqual(game_rg.piece_at(7, 3).name, "Reina Gorgo")
-        self.assertEqual(game_rg.piece_at(0, 4).name, "Rey Vercingétorix")
-        self.assertEqual(game_rg.piece_at(0, 3).name, "Reina Boudica")
+        self.assertEqual(game_rg.piece_at(0, 4).name, "Rey Artur")
+        self.assertEqual(game_rg.piece_at(0, 3).name, "Reina Morgana")
         for c in ALL_COLORS:
             self.assertIn("culture", lore.FACTIONS[c])
             self.assertIn("sovereigns", lore.FACTIONS[c])

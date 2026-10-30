@@ -497,8 +497,8 @@ def epilogue(result: dict) -> LoreEntry:
     if rtype == "checkmate" and winner == GREEN:
         return LoreEntry(
             "Epílogo · El Triunfo de Avalon",
-            "Los clanes celtas del Reino de Avalon reclaman las piedras del "
-            "trono bajo el Rey Vercingétorix y la Reina Boudica.",
+            "El Reino de Avalon reclama las piedras del trono bajo el Rey "
+            "Artur y la Reina Morgana.",
             "epilogue",
         )
     if rtype == "surrender":

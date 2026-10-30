@@ -44,10 +44,10 @@ FACTIONS = {
         "short": "Avalon",
         "adjective": "silvana",
         "crest": "❖",
-        "culture": "Clanes Celtas",
-        "sovereigns": "Rey Vercingétorix y Reina Boudica",
-        "motto": "Guerreros de los clanes, druidas y bosques sagrados.",
-        "lore": "Reino de clanes celtas y druidas de los bosques guiado por el Rey Vercingétorix y la Reina Boudica.",
+        "culture": "Reino Artúrico y Celta",
+        "sovereigns": "Rey Artur y Reina Morgana",
+        "motto": "Caballeros del bosque, druidas y la magia antigua de Avalon.",
+        "lore": "Reino celta y artúrico de bosques sagrados guiado por el Rey Artur y la Reina Morgana.",
     },
 }
 
@@ -107,8 +107,8 @@ KIND_LABEL = {
         PHOENIX: "Fénix de Fuego",
     },
     GREEN: {
-        KING: "Rey de los Clanes",
-        QUEEN: "Reina Guerrera",
+        KING: "Rey de Avalon",
+        QUEEN: "Reina de Avalon",
         ROOK: "Bastión del Bosque",
         BISHOP: "Druida",
         KNIGHT: "Jinete Celta",

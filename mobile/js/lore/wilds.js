@@ -134,8 +134,8 @@ export const NAME_POOLS = {
     ...NON_ROYAL_POOLS,
   },
   [GREEN]: {
-    [KING]: ["Rey Vercingétorix"],
-    [QUEEN]: ["Reina Boudica"],
+    [KING]: ["Rey Artur"],
+    [QUEEN]: ["Reina Morgana"],
     ...NON_ROYAL_POOLS,
   },
 };

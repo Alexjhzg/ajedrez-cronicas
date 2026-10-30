@@ -499,8 +499,8 @@ const VICTORY_EPILOGUES = {
   [GREEN]: {
     heading: "Epílogo · El Triunfo de Avalon",
     text:
-      "Los clanes celtas del Reino de Avalon reclaman las piedras del trono " +
-      "bajo el Rey Vercingétorix y la Reina Boudica.",
+      "El Reino de Avalon reclama las piedras del trono bajo el Rey Artur y " +
+      "la Reina Morgana.",
   },
 };
 

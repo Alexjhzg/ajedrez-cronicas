@@ -142,8 +142,8 @@ assert.equal(gRedGreen.legalMoves(RED).length, 22);
 assert.equal(gRedGreen.legalMoves(GREEN).length, 22);
 assert.equal(gRedGreen.pieceAt(7, 4).name, "Rey Leónidas");
 assert.equal(gRedGreen.pieceAt(7, 3).name, "Reina Gorgo");
-assert.equal(gRedGreen.pieceAt(0, 4).name, "Rey Vercingétorix");
-assert.equal(gRedGreen.pieceAt(0, 3).name, "Reina Boudica");
+assert.equal(gRedGreen.pieceAt(0, 4).name, "Rey Artur");
+assert.equal(gRedGreen.pieceAt(0, 3).name, "Reina Morgana");
 for (const c of ALL_COLORS) {
   assert.ok(lore.FACTIONS[c].culture);
   assert.ok(lore.FACTIONS[c].sovereigns);

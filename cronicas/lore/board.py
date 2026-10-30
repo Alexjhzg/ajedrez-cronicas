@@ -66,7 +66,7 @@ IMPERIAL_ROYAL_NAMES = {
     WHITE: {KING: "Rey Balduino", QUEEN: "Reina Leonor"},
     BLACK: {KING: "Rey Vladimir", QUEEN: "Reina Carmila"},
     RED: {KING: "Rey Leónidas", QUEEN: "Reina Gorgo"},
-    GREEN: {KING: "Rey Vercingétorix", QUEEN: "Reina Boudica"},
+    GREEN: {KING: "Rey Artur", QUEEN: "Reina Morgana"},
 }
 
 

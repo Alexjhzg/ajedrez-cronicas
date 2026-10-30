@@ -65,10 +65,10 @@ export const FACTIONS = {
     short: "Avalon",
     adjective: "silvana",
     crest: "❖",
-    culture: "Clanes Celtas",
-    sovereigns: "Rey Vercingétorix y Reina Boudica",
-    motto: "Guerreros de los clanes, druidas y bosques sagrados.",
-    lore: "Reino de clanes celtas y druidas de los bosques guiado por el Rey Vercingétorix y la Reina Boudica.",
+    culture: "Reino Artúrico y Celta",
+    sovereigns: "Rey Artur y Reina Morgana",
+    motto: "Caballeros del bosque, druidas y la magia antigua de Avalon.",
+    lore: "Reino celta y artúrico de bosques sagrados guiado por el Rey Artur y la Reina Morgana.",
   },
 };
 
@@ -128,8 +128,8 @@ export const KIND_LABEL = {
     [PHOENIX]: "Fénix de Fuego",
   },
   [GREEN]: {
-    [KING]: "Rey de los Clanes",
-    [QUEEN]: "Reina Guerrera",
+    [KING]: "Rey de Avalon",
+    [QUEEN]: "Reina de Avalon",
     [ROOK]: "Bastión del Bosque",
     [BISHOP]: "Druida",
     [KNIGHT]: "Jinete Celta",
@@ -259,8 +259,8 @@ export const GREEN_BACK = [
   [ROOK, "Torre", "Bastión del Bosque"],
   [KNIGHT, "Caballo", "Jinete Celta"],
   [BISHOP, "Alfil", "Druida"],
-  [QUEEN, "Reina Boudica", "Reina Guerrera"],
-  [KING, "Rey Vercingétorix", "Rey de los Clanes"],
+  [QUEEN, "Reina Morgana", "Reina de Avalon"],
+  [KING, "Rey Artur", "Rey de Avalon"],
   [BISHOP, "Alfil", "Druida"],
   [KNIGHT, "Caballo", "Jinete Celta"],
   [ROOK, "Torre", "Bastión del Bosque"],
@@ -304,10 +304,10 @@ export const OFFICER_BIOS = {
     "Rey guerrero de Esparta que encabeza la falange de bronce sin retroceder jamás un paso.",
   "Reina Gorgo":
     "Reina de Esparta cuya voz gobierna la patria bajo la ley de volver con el escudo o sobre él.",
-  "Rey Vercingétorix":
-    "Gran caudillo que unificó a los clanes celtas para defender la libertad de los bosques.",
-  "Reina Boudica":
-    "Reina guerrera de los clanes que lidera la carga desde su carro de batalla.",
+  "Rey Artur":
+    "Monarca legendario de Avalon que empuña la espada sagrada en defensa del reino.",
+  "Reina Morgana":
+    "Soberana y hechicera de las nieblas de Avalon, señora de los secretos antiguos.",
 };
 
 const PAWN_BIOS = {
@@ -482,7 +482,7 @@ const IMPERIAL_ROYAL_NAMES = {
   [WHITE]: { [KING]: "Rey Balduino", [QUEEN]: "Reina Leonor" },
   [BLACK]: { [KING]: "Rey Vladimir", [QUEEN]: "Reina Carmila" },
   [RED]: { [KING]: "Rey Leónidas", [QUEEN]: "Reina Gorgo" },
-  [GREEN]: { [KING]: "Rey Vercingétorix", [QUEEN]: "Reina Boudica" },
+  [GREEN]: { [KING]: "Rey Artur", [QUEEN]: "Reina Morgana" },
 };
 
 /**

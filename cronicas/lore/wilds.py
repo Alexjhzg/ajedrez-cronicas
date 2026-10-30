@@ -136,8 +136,8 @@ NAME_POOLS = {
         **_NON_ROYAL_POOLS,
     },
     GREEN: {
-        KING: ["Rey Vercingétorix"],
-        QUEEN: ["Reina Boudica"],
+        KING: ["Rey Artur"],
+        QUEEN: ["Reina Morgana"],
         **_NON_ROYAL_POOLS,
     },
 }
@@ -198,8 +198,8 @@ TITLES = {
         PAWN: "Espartano",
     },
     GREEN: {
-        KING: "Rey de los Clanes",
-        QUEEN: "Reina Guerrera",
+        KING: "Rey de Avalon",
+        QUEEN: "Reina de Avalon",
         ROOK: "Bastión del Bosque",
         BISHOP: "Druida",
         ELEPHANT: "Coloso del Bosque",

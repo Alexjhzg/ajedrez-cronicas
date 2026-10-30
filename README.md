@@ -10,8 +10,8 @@ Un juego de ajedrez táctico y narrativo ambientado en la disputa por el Trono d
   - **Soberanos**: `Rey Vladimir` y `Reina Carmila`
 - **⚔ Forja Carmesí (Rojas)** — *Esparta Clásica e Imperio Romano*
   - **Soberanos**: `Rey Leónidas` y `Reina Gorgo`
-- **❖ Reino de Avalon (Verdes)** — *Clanes Celtas*
-  - **Soberanos**: `Rey Vercingétorix` y `Reina Boudica`
+- **❖ Reino de Avalon (Verdes)** — *Reino Artúrico y Celta*
+  - **Soberanos**: `Rey Artur` y `Reina Morgana`
 
 ## Modos de Campaña y Características
 
