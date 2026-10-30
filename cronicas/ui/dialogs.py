@@ -339,12 +339,7 @@ class SetupDialog(ModalDialog):
                 activeforeground="#181020" if selected else TEXT,
             )
         info = lore.FACTIONS.get(color, lore.FACTIONS[WHITE])
-        self.faction_desc.configure(
-            text=(
-                f"{info['name']} ({info['culture']}) · Soberanos: {info['sovereigns']}.\n"
-                f"{info['lore']}"
-            )
-        )
+        self.faction_desc.configure(text=info["lore"])
 
     def _select_mode(self, mode: str) -> None:
         self.mode = mode

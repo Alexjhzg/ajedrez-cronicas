@@ -476,37 +476,29 @@ def epilogue(result: dict) -> LoreEntry:
     if rtype == "checkmate" and winner == WHITE:
         return LoreEntry(
             "Epílogo · El Trono de la Luz",
-            "El último estandarte rival cae. Las órdenes templarias de la Orden "
-            "del Alba recuperan el Trono de Aethelgard bajo el Rey Balduino y la "
-            "Reina Leonor, y las campanas de las catedrales blancas resuenan "
-            "durante cien inviernos.",
+            "El último estandarte rival cae. La Orden del Alba recupera el Trono "
+            "bajo el Rey Balduino y la Reina Leonor.",
             "epilogue",
         )
     if rtype == "checkmate" and winner == BLACK:
         return LoreEntry(
             "Epílogo · La Era del Eclipse",
-            "Las defensas enemigas se quiebran entre la niebla de los Cárpatos. "
-            "El Rey Vladimir y la Reina Carmila alzan el estandarte de la Orden "
-            "del Dragón sobre el Trono de Aethelgard; esa noche, el sol no se "
-            "atreve a salir.",
+            "Las defensas enemigas se quiebran en la niebla. El Rey Vladimir y "
+            "la Reina Carmila reclaman el Trono para la Legión del Eclipse.",
             "epilogue",
         )
     if rtype == "checkmate" and winner == RED:
         return LoreEntry(
-            "Epílogo · El Imperio del Bronce y el Hierro",
-            "Las falanges espartanas y las legiones de la Forja Carmesí marchan "
-            "victoriosas sobre el campo conquistado. El Rey Leónidas y la Reina "
-            "Gorgo alzan sus escudos sobre el Trono de Aethelgard e inauguran la "
-            "Era Marcial.",
+            "Epílogo · El Imperio de Esparta",
+            "Las falanges de la Forja Carmesí conquistan el campo. El Rey "
+            "Leónidas y la Reina Gorgo alzan sus escudos sobre el Trono.",
             "epilogue",
         )
     if rtype == "checkmate" and winner == GREEN:
         return LoreEntry(
             "Epílogo · El Triunfo de los Clanes",
-            "Los robledales sagrados y los círculos megalíticos reclaman las "
-            "piedras del trono. El Rey Vercingétorix y la Reina Boudica "
-            "devuelven Aethelgard a la Confederación Celta del Pacto de la "
-            "Espesura, donde ningún imperio volverá a someter la tierra.",
+            "Los clanes celtas reclaman las piedras del trono bajo el Rey "
+            "Vercingétorix y la Reina Boudica.",
             "epilogue",
         )
     if rtype == "surrender":

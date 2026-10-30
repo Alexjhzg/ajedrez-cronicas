@@ -79,7 +79,7 @@ export function refreshSetupView({
   const facDesc = document.getElementById("setupFactionDesc");
   if (facDesc) {
     const f = lore.FACTIONS[playerColor] || lore.FACTIONS[WHITE];
-    facDesc.textContent = `${f.name} (${f.culture}) · Soberanos: ${f.sovereigns}. ${f.lore || f.motto || ""}`;
+    facDesc.textContent = f.lore || f.motto || "";
   }
 
   document.querySelectorAll("[data-setup-mode]").forEach((btn) => {
