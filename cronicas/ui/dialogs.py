@@ -129,7 +129,7 @@ class SetupDialog(ModalDialog):
             inner,
             text=(
                 "Cuatro reinos se disputan el Trono de Aethelgard: la Orden del Alba, "
-                "la Forja Carmesí, el Pacto de la Espesura y la Legión del Eclipse."
+                "la Forja Carmesí, el Reino de Avalon y la Legión del Eclipse."
             ),
             bg=BG, fg=MUTED, font=(SERIF, 9, "italic"),
             wraplength=580, justify="left",

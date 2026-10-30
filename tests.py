@@ -220,7 +220,7 @@ class LoreAndWildsTests(unittest.TestCase):
         self.assertEqual(fog.tag, "fog")
 
     def test_four_kingdoms_and_multi_front_war(self) -> None:
-        # 1. Partida clásica con los nuevos reinos (Forja Carmesí vs Pacto de la Espesura) y Elefante (20 + 2 saltos = 22)
+        # 1. Partida clásica con los nuevos reinos (Forja Carmesí vs Reino de Avalon) y Elefante (20 + 2 saltos = 22)
         game_rg = lore.create_game(elephant=True, player_color=RED, enemy_color=GREEN)
         self.assertEqual(game_rg.turn_order, [RED, GREEN])
         self.assertEqual(len(game_rg.legal_moves(RED)), 22)

@@ -303,7 +303,7 @@ class ChroniclesApp(tk.Tk):
             self.board.set_scene("ruinas")
             self.title("Crónicas de Aethelgard · Guerra de los Cuatro Frentes")
             self.header_sub.configure(
-                text="Guerra de 4 Frentes  ·  Alba, Forja, Eclipse y Pacto en batalla",
+                text="Guerra de 4 Frentes  ·  Alba, Forja, Eclipse y Avalon en batalla",
             )
             intro = lore.four_fronts_prologue(
                 self.mode == "ai", difficulty, elephant=elephant,

@@ -5,7 +5,7 @@ from __future__ import annotations
 WHITE = "w"   # Orden del Alba (Dorado / Marfil)
 BLACK = "b"   # Legión del Eclipse (Obsidiana / Violeta)
 RED = "c"     # Forja Carmesí (Rojo Sangre / Bronce)
-GREEN = "v"   # Pacto de la Espesura (Verde Esmeralda / Jade)
+GREEN = "v"   # Reino de Avalon (Verde Esmeralda / Jade)
 
 ALL_COLORS = (WHITE, RED, BLACK, GREEN)
 

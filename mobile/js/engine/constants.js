@@ -5,7 +5,7 @@
 export const WHITE = "w"; // Orden del Alba
 export const BLACK = "b"; // Legión del Eclipse
 export const RED = "c";   // Forja Carmesí
-export const GREEN = "v"; // Pacto de la Espesura
+export const GREEN = "v"; // Reino de Avalon
 
 export const ALL_COLORS = [WHITE, RED, BLACK, GREEN];
 

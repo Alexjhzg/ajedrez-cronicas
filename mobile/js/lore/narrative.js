@@ -305,8 +305,8 @@ export function fourFrontsPrologue(
   const pName = factionName(playerColor);
   let text =
     "Las trompetas de los cuatro puntos cardinales resuenan al unísono. " +
-    "La Orden del Alba, la Forja Carmesí, la Legión del Eclipse y el Pacto " +
-    "de la Espesura convergen sobre la encrucijada central de Aethelgard.\n\n" +
+    "La Orden del Alba, la Forja Carmesí, la Legión del Eclipse y el Reino " +
+    "de Avalon convergen sobre la encrucijada central de Aethelgard.\n\n" +
     `Comandas a ${pName} desde el frente sur. Tres ejércitos rivales ` +
     "asedian desde el oeste, el norte y el este. Cuando un monarca cae o se " +
     "queda sin movimientos legales, su frente entero se desmorona.";
@@ -497,10 +497,10 @@ const VICTORY_EPILOGUES = {
       "y la Reina Gorgo alzan sus escudos sobre el Trono.",
   },
   [GREEN]: {
-    heading: "Epílogo · El Triunfo de los Clanes",
+    heading: "Epílogo · El Triunfo de Avalon",
     text:
-      "Los clanes celtas reclaman las piedras del trono bajo el Rey " +
-      "Vercingétorix y la Reina Boudica.",
+      "Los clanes celtas del Reino de Avalon reclaman las piedras del trono " +
+      "bajo el Rey Vercingétorix y la Reina Boudica.",
   },
 };
 
@@ -553,7 +553,7 @@ const VICTORY_TITLES = {
   [WHITE]: ["VICTORIA DEL ALBA", "El Trono de la Luz vuelve a brillar"],
   [BLACK]: ["VICTORIA DEL ECLIPSE", "La ceniza cubre Aethelgard"],
   [RED]: ["VICTORIA DE LA FORJA", "El fuego carmesí domina Aethelgard"],
-  [GREEN]: ["VICTORIA DEL PACTO", "El bosque ancestral reclama el trono"],
+  [GREEN]: ["VICTORIA DE AVALON", "El bosque ancestral reclama el trono"],
 };
 
 /** Devuelve [título, subtítulo, color lógico]. */

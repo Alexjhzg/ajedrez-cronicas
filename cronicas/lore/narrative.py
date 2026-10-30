@@ -296,8 +296,8 @@ def four_fronts_prologue(
     p_name = faction_name(player_color)
     text = (
         "Las trompetas de los cuatro puntos cardinales resuenan al unísono. "
-        "La Orden del Alba, la Forja Carmesí, la Legión del Eclipse y el Pacto "
-        "de la Espesura convergen sobre la encrucijada central de Aethelgard.\n\n"
+        "La Orden del Alba, la Forja Carmesí, la Legión del Eclipse y el Reino "
+        "de Avalon convergen sobre la encrucijada central de Aethelgard.\n\n"
         f"Comandas a {p_name} desde el frente sur. Tres ejércitos rivales "
         "asedian desde el oeste, el norte y el este. Cuando un monarca cae o se "
         "queda sin movimientos legales, su frente entero se desmorona."
@@ -496,9 +496,9 @@ def epilogue(result: dict) -> LoreEntry:
         )
     if rtype == "checkmate" and winner == GREEN:
         return LoreEntry(
-            "Epílogo · El Triunfo de los Clanes",
-            "Los clanes celtas reclaman las piedras del trono bajo el Rey "
-            "Vercingétorix y la Reina Boudica.",
+            "Epílogo · El Triunfo de Avalon",
+            "Los clanes celtas del Reino de Avalon reclaman las piedras del "
+            "trono bajo el Rey Vercingétorix y la Reina Boudica.",
             "epilogue",
         )
     if rtype == "surrender":
@@ -546,7 +546,7 @@ def result_title(result: dict) -> tuple[str, str, str]:
         if winner == RED:
             return "VICTORIA DE LA FORJA", "El fuego carmesí domina Aethelgard", RED
         if winner == GREEN:
-            return "VICTORIA DEL PACTO", "El bosque ancestral reclama el trono", GREEN
+            return "VICTORIA DE AVALON", "El bosque ancestral reclama el trono", GREEN
         return "VICTORIA DEL ECLIPSE", "La ceniza cubre Aethelgard", BLACK
     if rtype == "stalemate":
         return "TABLAS", "El equilibrio detiene la guerra", "draw"

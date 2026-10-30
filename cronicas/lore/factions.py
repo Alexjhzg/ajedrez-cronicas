@@ -40,14 +40,14 @@ FACTIONS = {
         "lore": "Imperio marcial de falanges de bronce y legiones de hierro comandado por el Rey Leónidas y la Reina Gorgo.",
     },
     GREEN: {
-        "name": "Pacto de la Espesura",
-        "short": "el Pacto",
+        "name": "Reino de Avalon",
+        "short": "Avalon",
         "adjective": "silvana",
         "crest": "❖",
         "culture": "Clanes Celtas",
         "sovereigns": "Rey Vercingétorix y Reina Boudica",
         "motto": "Guerreros de los clanes, druidas y bosques sagrados.",
-        "lore": "Confederación de clanes celtas y druidas de los bosques guiada por el Rey Vercingétorix y la Reina Boudica.",
+        "lore": "Reino de clanes celtas y druidas de los bosques guiado por el Rey Vercingétorix y la Reina Boudica.",
     },
 }
 
