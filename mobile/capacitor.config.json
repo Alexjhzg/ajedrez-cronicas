@@ -1,0 +1,9 @@
+{
+  "appId": "com.aethelgard.cronicas",
+  "appName": "Crónicas de Aethelgard",
+  "webDir": ".",
+  "bundledWebRuntime": false,
+  "server": {
+    "androidScheme": "https"
+  }
+}

@@ -1,0 +1,400 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover"
+    />
+    <meta name="theme-color" content="#0f0b14" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <title>Crónicas de Aethelgard · Mobile Edition</title>
+    <link rel="manifest" href="./manifest.json" />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <!-- Cabecera compacta móvil -->
+      <header class="top-header">
+        <div>
+          <div class="brand-title">CRÓNICAS DE AETHELGARD</div>
+          <div id="campaignSubtitle" class="brand-subtitle">
+            Ajedrez Táctico Medieval
+          </div>
+        </div>
+        <div class="header-actions">
+          <button id="btnSound" type="button" class="pill-btn active-pill">
+            SONIDO: SÍ
+          </button>
+          <button id="btnPremiumBadge" type="button" class="pill-btn">
+            EDICIÓN GRATUITA
+          </button>
+        </div>
+      </header>
+
+      <!-- Barra de estado y crónica en vivo -->
+      <section class="live-ticker" aria-live="polite">
+        <div class="ticker-top">
+          <span id="tickerHeading" class="ticker-heading">
+            Prólogo · Los dos estandartes
+          </span>
+          <span id="turnBadge" class="turn-badge turn-white">
+            ☀ Turno del Alba
+          </span>
+        </div>
+        <div id="tickerText" class="ticker-text">
+          Selecciona una pieza de la Orden del Alba para comenzar la crónica.
+        </div>
+      </section>
+
+      <!-- Escenario del Tablero Táctil -->
+      <section class="board-stage">
+        <canvas id="boardCanvas" width="360" height="360"></canvas>
+      </section>
+
+      <!-- Controles rápidos -->
+      <nav class="action-bar" aria-label="Controles de partida">
+        <button id="btnNewGame" type="button" class="action-btn primary">
+          Nueva crónica
+        </button>
+        <button id="btnUndo" type="button" class="action-btn">
+          Deshacer
+        </button>
+        <button id="btnFlip" type="button" class="action-btn">
+          Girar vista
+        </button>
+        <button id="btnSurrender" type="button" class="action-btn danger">
+          Rendirse
+        </button>
+      </nav>
+
+      <!-- Gaveta inferior con pestañas (Héroe / Crónica / Códice & Tienda) -->
+      <section class="bottom-drawer">
+        <div class="drawer-tabs" role="tablist">
+          <button
+            type="button"
+            class="tab-btn active"
+            data-tab="hero"
+            role="tab"
+          >
+            Héroe y Terreno
+          </button>
+          <button type="button" class="tab-btn" data-tab="story" role="tab">
+            Crónica Viva
+          </button>
+          <button type="button" class="tab-btn" data-tab="codex" role="tab">
+            Códice y Tienda
+          </button>
+        </div>
+
+        <!-- Pestaña 1: Inspector de Héroe y Terreno -->
+        <div id="panel-hero" class="tab-panel active" role="tabpanel">
+          <div class="hero-card">
+            <div id="heroGlyph" class="hero-glyph glyph-white">♚</div>
+            <div>
+              <div id="heroName" class="hero-name">Rey Balduino</div>
+              <div id="heroTitle" class="hero-title">Rey Cruzado del Alba</div>
+              <div id="heroStatus" class="hero-status">
+                En la Colina del Alba · E1 · Bajas: 0
+              </div>
+              <div id="heroBio" class="hero-bio"></div>
+            </div>
+          </div>
+          <div id="terrainInspector" class="terrain-box" hidden>
+            <div id="terrainTitle" class="terrain-title">Terreno</div>
+            <div id="terrainDesc" class="terrain-desc"></div>
+          </div>
+        </div>
+
+        <!-- Pestaña 2: Crónica completa y notación -->
+        <div id="panel-story" class="tab-panel" role="tabpanel">
+          <div id="notationList" class="notation-strip"></div>
+          <div id="storyLog"></div>
+        </div>
+
+        <!-- Pestaña 3: Códice de Aethelgard y Monetización -->
+        <div id="panel-codex" class="tab-panel" role="tabpanel">
+          <div class="codex-grid">
+            <div class="stat-card">
+              <div id="codexGames" class="stat-val">0</div>
+              <div class="stat-lbl">Batallas</div>
+            </div>
+            <div class="stat-card">
+              <div id="codexDawnWins" class="stat-val">0</div>
+              <div class="stat-lbl">Victorias</div>
+            </div>
+            <div class="stat-card">
+              <div id="codexCrusades" class="stat-val">0</div>
+              <div class="stat-lbl">Cruzadas</div>
+            </div>
+            <div class="stat-card">
+              <div id="codexVeterans" class="stat-val">0</div>
+              <div class="stat-lbl">Veteranos ★</div>
+            </div>
+          </div>
+
+          <div id="codexLicenseStatus" class="license-box"></div>
+          <button
+            id="btnToggleFreeTest"
+            type="button"
+            class="action-btn"
+            style="width: 100%; margin-bottom: 10px"
+          >
+            Cambiar licencia de prueba
+          </button>
+
+          <div class="section-lbl">Memorial de Caídos del Alba</div>
+          <div id="fallenMemorial"></div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Modal 1: Configuración de Nueva Crónica (light-dismiss habilitado con closedby="any") -->
+    <dialog
+      id="setupDialog"
+      closedby="any"
+      aria-labelledby="setupDialogTitle"
+    >
+      <div class="dlg-kicker">CRÓNICAS DE AETHELGARD</div>
+      <h2 id="setupDialogTitle" class="dlg-title">Forja tu crónica</h2>
+      <div class="dlg-sub">
+        Cuatro reinos disputan el Trono de Aethelgard en múltiples frentes.
+      </div>
+
+      <div class="section-lbl">Tu Reino</div>
+      <div class="seg-group">
+        <button
+          type="button"
+          class="seg-btn selected"
+          data-setup-faction="w"
+        >
+          ☀ Alba
+        </button>
+        <button type="button" class="seg-btn" data-setup-faction="c">
+          ⚔ Forja
+        </button>
+        <button type="button" class="seg-btn" data-setup-faction="v">
+          ❖ Pacto
+        </button>
+        <button type="button" class="seg-btn" data-setup-faction="b">
+          ☾ Eclipse
+        </button>
+      </div>
+      <div
+        id="setupFactionDesc"
+        class="dlg-sub"
+        style="margin-top: 6px; margin-bottom: 8px"
+      ></div>
+
+      <div class="section-lbl">Modo de campaña</div>
+      <div class="seg-group">
+        <button
+          type="button"
+          class="seg-btn selected"
+          data-setup-campaign="crusade"
+        >
+          Cruzada (4 etapas)
+        </button>
+        <button type="button" class="seg-btn" data-setup-campaign="imperial">
+          Imperio 12x12
+        </button>
+        <button type="button" class="seg-btn" data-setup-campaign="four_fronts">
+          Guerra 4 Frentes
+        </button>
+        <button type="button" class="seg-btn" data-setup-campaign="wild">
+          Tierra salvaje
+        </button>
+        <button type="button" class="seg-btn" data-setup-campaign="classic">
+          Crónica clásica
+        </button>
+      </div>
+      <div
+        id="setupCampaignDesc"
+        class="dlg-sub"
+        style="margin-top: 6px; margin-bottom: 8px"
+      ></div>
+
+      <div class="section-lbl">Adversario</div>
+      <div class="seg-group">
+        <button type="button" class="seg-btn selected" data-setup-mode="ai">
+          Contra el Oráculo (IA)
+        </button>
+        <button type="button" class="seg-btn" data-setup-mode="local">
+          Duelo local (2J)
+        </button>
+      </div>
+
+      <div class="section-lbl">Dificultad del Oráculo</div>
+      <div class="seg-group">
+        <button type="button" class="seg-btn" data-setup-diff="Escudero">
+          Escudero
+        </button>
+        <button
+          type="button"
+          class="seg-btn selected"
+          data-setup-diff="Caballero"
+        >
+          Caballero
+        </button>
+        <button type="button" class="seg-btn" data-setup-diff="Archimago">
+          Archimago
+        </button>
+      </div>
+
+      <div class="section-lbl">Reglas tácticas</div>
+      <div class="seg-group">
+        <button id="toggleElephant" type="button" class="seg-btn">
+          Elefante de guerra (⛨)
+        </button>
+        <button id="toggleFog" type="button" class="seg-btn">
+          Niebla de guerra
+        </button>
+      </div>
+
+      <div class="dlg-footer">
+        <button id="btnStartChronicle" type="button" class="action-btn primary">
+          Comenzar la crónica
+        </button>
+      </div>
+    </dialog>
+
+    <!-- Modal 2: Suceso de Guerra Interactivo -->
+    <dialog id="dilemmaDialog" aria-labelledby="dilemmaTitle">
+      <div class="dlg-kicker">SUCESO DE GUERRA INTERACTIVO</div>
+      <h2 id="dilemmaTitle" class="dlg-title">Encrucijada</h2>
+      <div id="dilemmaPrompt" class="dlg-sub"></div>
+      <div id="dilemmaOptions" class="choice-list"></div>
+    </dialog>
+
+    <!-- Modal 3: Interludio de Campamento (Cruzada Encadenada) -->
+    <dialog id="interludeDialog" aria-labelledby="interludeTitle">
+      <div class="dlg-kicker">CAMPAMENTO DE LA CRUZADA</div>
+      <h2 id="interludeTitle" class="dlg-title">Reagrupa tus fuerzas</h2>
+      <div id="interludeSummary" class="dlg-sub"></div>
+      <div id="interludeBoons" class="choice-list"></div>
+    </dialog>
+
+    <!-- Modal 4: Coronación de Peón -->
+    <dialog id="promotionDialog" aria-labelledby="promoTitle">
+      <div class="dlg-kicker">ALTAR DE CORONACIÓN</div>
+      <h2 id="promoTitle" class="dlg-title">El ascenso del escudero</h2>
+      <div class="dlg-sub">Elige el nuevo rango para tu unidad:</div>
+      <div id="promotionOptions" class="choice-list"></div>
+    </dialog>
+
+    <!-- Modal 5: Fin de Crónica + Pacto del Oráculo (Rewarded Ad / Retry) -->
+    <dialog id="endDialog" closedby="any" aria-labelledby="endTitle">
+      <div
+        id="endIcon"
+        style="font-size: 2.2rem; color: var(--gold-light); text-align: center"
+      >
+        ☀
+      </div>
+      <h2 id="endTitle" class="dlg-title" style="text-align: center">
+        VICTORIA DEL ALBA
+      </h2>
+      <div
+        id="endSubtitle"
+        class="dlg-sub"
+        style="text-align: center; margin-bottom: 10px"
+      ></div>
+      <div
+        id="endEpilogue"
+        class="hero-bio"
+        style="margin-bottom: 12px"
+      ></div>
+
+      <div class="codex-grid" style="grid-template-columns: repeat(2, 1fr)">
+        <div class="stat-card">
+          <div id="endStatMoves" class="stat-val">0</div>
+          <div class="stat-lbl">Jugadas</div>
+        </div>
+        <div class="stat-card">
+          <div id="endStatCaptures" class="stat-val">0</div>
+          <div class="stat-lbl">Caídos</div>
+        </div>
+      </div>
+
+      <button
+        id="btnOracleRetry"
+        type="button"
+        class="action-btn primary"
+        style="width: 100%; margin-bottom: 8px"
+        hidden
+      >
+        Pacto del Oráculo · Reintentar Etapa
+      </button>
+
+      <div class="dlg-footer">
+        <button id="btnEndReview" type="button" class="action-btn">
+          Revisar tablero
+        </button>
+        <button id="btnEndNew" type="button" class="action-btn primary">
+          Nueva crónica
+        </button>
+      </div>
+    </dialog>
+
+    <!-- Modal 6: Desbloqueo Comercial del Códice Completo (IAP / Monetización) -->
+    <dialog
+      id="premiumDialog"
+      closedby="any"
+      aria-labelledby="premiumDialogTitle"
+    >
+      <div class="dlg-kicker">EDICIÓN COMERCIAL · PAGO ÚNICO</div>
+      <h2 id="premiumDialogTitle" class="dlg-title">
+        Códice Completo de Aethelgard
+      </h2>
+      <div class="dlg-sub">
+        Desbloquea la experiencia táctica íntegra sin suscripciones ni anuncios
+        obligatorios:
+      </div>
+
+      <div class="choice-list">
+        <div class="choice-card">
+          <span class="choice-glyph">♚</span>
+          <div>
+            <div class="choice-title">Cruzada Encadenada Completa (4 Etapas)</div>
+            <div class="choice-desc">
+              Acceso al Paso del Dragón y el asedio final en Las Ruinas del
+              Trono contra el Archimago, con reintentos ilimitados.
+            </div>
+          </div>
+        </div>
+        <div class="choice-card">
+          <span class="choice-glyph">⛨</span>
+          <div>
+            <div class="choice-title">Colosos: Elefante de Guerra</div>
+            <div class="choice-desc">
+              Despliega al Elefantarca Aurel y Vorgath con salto parabólico sobre
+              las filas enemigas.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="dlg-footer">
+        <button
+          type="button"
+          class="action-btn"
+          onclick="document.getElementById('premiumDialog').close()"
+        >
+          Seguir en versión gratuita
+        </button>
+        <button id="btnBuyPremium" type="button" class="action-btn primary">
+          Desbloquear ($2.99 USD)
+        </button>
+      </div>
+    </dialog>
+
+    <script type="module" src="./js/app.js"></script>
+    <script>
+      if ("serviceWorker" in navigator) {
+        window.addEventListener("load", () => {
+          navigator.serviceWorker.register("./sw.js").catch(() => {});
+        });
+      }
+    </script>
+  </body>
+</html>
